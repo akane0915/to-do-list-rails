@@ -11,6 +11,10 @@
   <body>
     <% content_for(:title, "List | To Do") %>
     <%= flash[:notice] %>
+
+    <div class="jumbotron">
+      <h1>To Do Application</h1>
+    </div>
     <%= yield %>
   </body>
 </html>
