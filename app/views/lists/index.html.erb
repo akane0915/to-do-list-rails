@@ -1,3 +1,5 @@
+<% content_for(:title, "Lists | To Do") %>
+
 <h1>Lists</h1>
 
 <ul>
@@ -10,6 +12,14 @@
 <h2>Not Done Tasks</h2>
 <ul>
   <% @not_done_tasks.each do |task| %>
+    <li><%= task.description %></li>
+  <% end %>
+</ul>
+
+<hr>
+<h2>Done Tasks</h2>
+<ul>
+  <% @done_tasks.each do |task| %>
     <li><%= task.description %></li>
   <% end %>
 </ul>

@@ -6,9 +6,9 @@ describe Task do
 
   describe(".not_done") do
     it("displays tasks that are not yet complete") do
-      not_done_task = Task.create({:description => "gotta do it"})
+      not_done_task = Task.create(description: "gotta do it", done: false)
       done_task = Task.create({:description => "dishes", :done => true})
-      expect(Task.not_done()).to(eq(not_done_task))
+      expect(Task.not_done).to(eq([not_done_task]))
     end
   end
 end

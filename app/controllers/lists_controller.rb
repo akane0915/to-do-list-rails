@@ -2,12 +2,11 @@ class ListsController < ApplicationController
   def index
     @lists = List.all
     @not_done_tasks = Task.not_done
-    render :index
+    @done_tasks = Task.done_tasks
   end
 
   def show
     @list = List.find(params[:id])
-    render :show
   end
 
   def new
@@ -17,6 +16,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
+      flash[:notice] = "List successfully added!"
       redirect_to  lists_path
     else
       render :new
@@ -25,7 +25,6 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
-    render :edit
   end
 
   def update
